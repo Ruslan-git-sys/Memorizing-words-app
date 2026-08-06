@@ -1,1 +1,1 @@
-# Memorizing-words-app
+# Memorizing_words_app - Приложение для заучивания слов
