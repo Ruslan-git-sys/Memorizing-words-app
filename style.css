@@ -1,5 +1,4 @@
-@import url('https://cdnfonts.com');
-
-body {
-  font-family: 'Verdana', sans-serif;
-}
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+    window.location.href = 'lesson.html';
+});
