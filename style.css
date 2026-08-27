@@ -1,4 +1,272 @@
-const button = document.querySelector('button');
-button.addEventListener('click', () => {
-    window.location.href = 'lesson.html';
-});
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-main: #1a1a1a;
+  --text-secondary: #666666;
+  --accent-purple: #6c5ce7;
+  --card-bg: #1e1e2e;
+  --card-text: #ffffff;
+  --border-color: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Шапка (Header) --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.92); /* полупрозрачный белый */
+  backdrop-filter: blur(10px); /* эффект матового стекла (подходит под фиолетовую тему) */
+  border-bottom: 1px solid rgba(108, 92, 231, 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: color 0.3s;
+}
+
+.nav-link:hover { color: var(--accent-purple); }
+
+/* --- Главный экран (Hero) --- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.social-icons span {
+  width: 24px;
+  height: 24px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.btn-primary {
+  background-color: var(--accent-purple);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover { background-color: #5649c0; }
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: right;
+}
+
+
+.hero-img {
+  width: 100%;
+  max-width: 300px; /* Максимальная ширина картинки */
+  height: auto;     /* Высота подстроится автоматически */
+  border-radius: 20px;
+  display: block;
+  object-fit: cover; /* Если картинка прямоугольная, она заполнит блок аккуратно */
+}
+
+/* --- Секция "О нас" --- */
+.section-about {
+  margin-bottom: 80px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.about-mission {
+  max-width: 700px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.about-mission strong {
+  color: var(--text-main);
+}
+
+/* --- Секция подписок --- */
+.section-pricing {
+  margin-bottom: 80px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.pricing-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-purple);
+}
+
+.card-type {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-price {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-period {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.card-benefit {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* --- Секция контактов --- */
+.section-contacts {
+  margin-bottom: 60px;
+}
+
+.contacts-text {
+  max-width: 700px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.contacts-list {
+  max-width: 700px;
+}
+
+.contact-item {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #333;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; text-align: center; }
+  .hero-image { text-align: center; width: 100%; }
+  .hero-image-placeholder { margin: 0 auto; }
+  .hero-content h1 { max-width: 100%; }
+  .nav-links { display: none; }
+  
+  /* На мобильных картинка должна занимать всю доступную ширину */
+  .hero-img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
