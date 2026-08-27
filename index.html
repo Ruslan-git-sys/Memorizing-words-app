@@ -1,11 +1,120 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Название вашей страницы</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WordBloom</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Здесь будет контент -->
+
+  <div class="container">
+    <!-- Шапка -->
+    <header class="site-header">
+      <div class="logo">WORDBLOOM</div>
+      <nav class="nav-links">
+        <a href="lesson.html" class="nav-link">Начать</a>
+        <a href="#ubout" class="nav-link">О нас</a>
+        <a href="#pricing" class="nav-link">Платная подписка</a>
+        <a href="#contacts" class="nav-link">Поддержка и контакты</a>
+      </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <section id= "#start" class="hero">
+      <div class="hero-content">
+        <h1>Развивай словарный запас — раскрывай свой потенциал!</h1>
+        <div class="social-icons">
+          <span>VK</span>
+          <span>TG</span>
+          <span>YT</span>
+        </div>
+        <button class ="btn-primary" onclick="window.location.href='lesson.html'">Начать</button>
+      </div>
+      
+      <div class="hero-image">
+        <img src="src/logo2.jpeg" alt="Абстрактная иллюстрация WordBloom" class="hero-img">
+      </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="ubout" class="section-about">
+      <h2 class="section-title">О нас</h2>
+      <p class="section-title" style="font-size: 20px; margin-bottom: 16px;">Наша миссия</p>
+      
+      <p class="about-mission">
+        Изучение слов не должно быть рутиной. В WordBloom наша миссия — сделать так, чтобы это ощущалось как прогресс: видимый, приятный и приносящий удовлетворение.
+      </p>
+      <p class="about-mission">
+        Каждая функция, которую мы создаём, призвана помочь вам перейти от «я видел это слово» к «я использую это слово». Мы делаем упор на активное воспроизведение, осмысленный контекст и регулярную практику, чтобы новая лексика стала естественной частью того, как вы говорите и пишете.
+      </p>
+      <p class="about-mission">
+        С WordBloom вы не просто запоминаете слова — вы делаете их своими.
+      </p>
+    </section>
+
+    <!-- Платная подписка -->
+    <section id="pricing" class="section-pricing">
+      <h2 class="section-title">Платная подписка</h2>
+      <div class="pricing-grid">
+        <!-- Карточка 1: Monthly -->
+        <div class="pricing-card">
+          <span class="card-type">MONTHLY</span>
+          <span class="card-price">399 ₽</span>
+          <span class="card-period">в месяц</span>
+          <div class="card-benefit">Базовый доступ</div>
+        </div>
+
+        <!-- Карточка 2: Yearly -->
+        <div class="pricing-card">
+          <span class="card-type">YEARLY</span>
+          <span class="card-price">3 790 ₽</span>
+          <span class="card-period">в год</span>
+          <div class="card-benefit">(экономия 20%)</div>
+        </div>
+
+        <!-- Карточка 3: Family -->
+        <div class="pricing-card">
+          <span class="card-type">FAMILY</span>
+          <span class="card-price">5 490 ₽</span>
+          <span class="card-period">в год</span>
+          <div class="card-benefit">на 3 аккаунта</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Поддержка и контакты -->
+    <section id="contacts" class="section-contacts">
+      <h2 class="section-title">Поддержка и контакты</h2>
+      <p class="contacts-text">
+        Мы рядом, чтобы помочь: неважно, застряли ли вы на одном слове или не получается войти в аккаунт — мы всё разберём вместе. Думайте о нашей поддержке как о дружелюбном напарнике: подскажет, успокоит и поможет дойти до результата.
+      </p>
+      <ul class="contacts-list">
+        <li class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>Почта:</strong> support@wordbloom.ru — напишите, что случилось, и мы ответим в течение 24 часов.
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <strong>Чат в приложении:</strong> значок в правом нижнем углу — отвечаем в рабочее время с 9:00 до 21:00 (МСК).
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon">📄</div>
+          <div>
+            <strong>Форма обратной связи:</strong> внизу страницы — если удобнее описать проблему в деталях.
+          </div>
+        </li>
+      </ul>
+      <p class="contacts-text" style="margin-top: 24px; font-size: 14px;">
+        Если вы нашли опечатку в слове, ошибку в упражнении или просто хотите поделиться идеей — мы будем очень благодарны. Каждое обращение помогает делать WordBloom лучше.
+      </p>
+    </section>
+  </div>
+
 </body>
 </html>
