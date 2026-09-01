@@ -1,0 +1,260 @@
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+
+:root {
+  --duration: 300ms;
+  --timing-fn: ease;
+  --turquoise: #1ABC9C;
+  --wet-asphalt: #34495E;
+  --midnight-blue: #2C3E50;
+  --clouds: #ECF0F1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+h1 {
+  margin: 0 auto 5px;
+  text-align: center;
+}
+
+.container {
+  width: 840px;
+  margin: 0 auto;
+}
+
+header {
+  font-family: 'Bree Serif', serif;
+  text-align: center;
+  margin: 50px 0 25px;
+  color: var(--wet-asphalt);
+}
+
+header p {
+  margin: 0;
+  color: rgba(52, 73, 94, 0.4); /* аналог transparentize($wet-asphalt, .6) */
+}
+
+ul {
+  padding: 0;
+  margin: 0 0 50px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+li {
+  position: relative;
+  height: 200px;
+  perspective: 450px; /* взято из «important bits», это важнее для 3D */
+  border: 5px solid var(--clouds);
+  border-radius: 4px;
+}
+
+a {
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.normal {
+  width: 100%;
+  height: 100%;
+  background-color: var(--clouds);
+  color: rgba(52, 73, 94, 0.6); /* аналог transparentize($wet-asphalt, .4) */
+  box-shadow: inset 0 2px 20px rgba(236, 240, 241, 0.8);
+  text-align: center;
+  font-size: 50px;
+  line-height: 200px;
+}
+
+.normal svg {
+  pointer-events: none;
+  width: 50px;
+}
+
+.normal svg path {
+  fill: rgba(52, 73, 94, 0.2); /* аналог transparentize($wet-asphalt, .8) */
+}
+
+h3 {
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Bree Serif', serif;
+  color: rgba(255, 255, 255, 0.9); /* аналог transparentize(#fff, .1) */
+}
+
+p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8); /* аналог transparentize(#fff, .2) */
+}
+
+/* --- Блок .info и анимации (основная логика) --- */
+.info {
+  transform: rotate3d(1, 0, 0, 90deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+  pointer-events: none;
+  background-color: rgba(147, 128, 211, 0.9); /* аналог transparentize($turquoise, .1) */
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.in-top .info {
+  transform-origin: 50% 0%;
+  animation: in-top var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.in-right .info {
+  transform-origin: 100% 50%;
+  animation: in-right var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.in-bottom .info {
+  transform-origin: 50% 100%;
+  animation: in-bottom var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.in-left .info {
+  transform-origin: 0% 50%;
+  animation: in-left var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.out-top .info {
+  transform-origin: 50% 0%;
+  animation: out-top var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.out-right .info {
+  transform-origin: 100% 50%;
+  animation: out-right var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.out-bottom .info {
+  transform-origin: 50% 100%;
+  animation: out-bottom var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.out-left .info {
+  transform-origin: 0% 50%;
+  animation: out-left var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+@keyframes in-top {
+  from { transform: rotate3d(-1, 0, 0, 90deg); }
+  to   { transform: rotate3d(0, 0, 0, 0deg); }
+}
+
+@keyframes in-right {
+  from { transform: rotate3d(0, -1, 0, 90deg); }
+  to   { transform: rotate3d(0, 0, 0, 0deg); }
+}
+
+@keyframes in-bottom {
+  from { transform: rotate3d(1, 0, 0, 90deg); }
+  to   { transform: rotate3d(0, 0, 0, 0deg); }
+}
+
+@keyframes in-left {
+  from { transform: rotate3d(0, 1, 0, 90deg); }
+  to   { transform: rotate3d(0, 0, 0, 0deg); }
+}
+
+@keyframes out-top {
+  from { transform: rotate3d(0, 0, 0, 0deg); }
+  to   { transform: rotate3d(-1, 0, 0, 104deg); }
+}
+
+@keyframes out-right {
+  from { transform: rotate3d(0, 0, 0, 0deg); }
+  to   { transform: rotate3d(0, -1, 0, 104deg); }
+}
+
+@keyframes out-bottom {
+  from { transform: rotate3d(0, 0, 0, 0deg); }
+  to   { transform: rotate3d(1, 0, 0, 104deg); }
+}
+
+@keyframes out-left {
+  from { transform: rotate3d(0, 0, 0, 0deg); }
+  to   { transform: rotate3d(0, 1, 0, 104deg); }
+}
+
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .mech-item {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+
+  .mech-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .mech-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+  }
+
+  .mech-desc {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .final-cta {
+    background: #1e1e2e;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  .final-cta p {
+    margin-bottom: 30px;
+    color: #aaa;
+  }
+
+  .btn-primary-large {
+    display: inline-block;
+    background: #6c5ce7;
+    color: white;
+    padding: 16px 40px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+
+  .btn-primary-large:hover {
+    background: #5649c0;
+  }
